@@ -49,9 +49,7 @@ class CustomerController(
     }
 
     @DeleteMapping
-    fun detete(@PathVariable id: Int) {
+    fun delete(@PathVariable id: Int) {
         customerService.delete(id)
     }
-
-
 }

@@ -1,8 +1,12 @@
 package com.mercadolivro.fundamentos
 
+import com.fasterxml.jackson.annotation.JsonAlias
 import org.springframework.data.jpa.domain.AbstractPersistable_.id
 
 class Pessoa {
+//alias remomeia a variavel esperada no json
+    @JsonAlias("book_id")
+    val bookId: Int = 0
 
     fun test() {
         var floatt = 1.3f //float
@@ -30,6 +34,7 @@ class Pessoa {
         //orElseThrow se nao achar o valor retorna uma exceccao
 
         //return customerRepository.findById(id).orElseThrow()
+
     }
 
 }

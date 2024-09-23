@@ -13,11 +13,22 @@ import com.mercadolivro.model.CustomerModel
 import org.springframework.data.jpa.domain.AbstractPersistable_.id
 
 fun PostCustomerRequest.toCustomerModel(): CustomerModel {
-    return CustomerModel(name = this.name, email = this.email, status = CustomerStatus.ATIVO)
+    return CustomerModel(
+        name = this.name,
+        email = this.email,
+        status = CustomerStatus.ATIVO,
+        password = this.password
+    )
 }
 
 fun PutCustomerRequest.toCustomerModel(previusValue: CustomerModel): CustomerModel {
-    return CustomerModel(id = previusValue.id, name = this.name, email = this.email, status = previusValue.status)
+    return CustomerModel(
+        id = previusValue.id,
+        name = this.name,
+        email = this.email,
+        status = previusValue.status,
+        password = previusValue.password
+    )
 }
 fun PostBookRequest.toBookModel(customer: CustomerModel): BookModel {
     return BookModel(
